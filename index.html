@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZZZ - JavaScript Puro</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Simulador</h1>
+        <p>Datos sobre latidos del corazon</p> </p>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="card">
+                <h2>Demostración JavaScript</h2>
+                <div class="demo-section">
+                    <h3>Contador</h3>
+                    <div class="counter-container">
+                        <button id="decrementBtn" class="btn btn-secondary">-</button>
+                        <span id="counterValue" class="counter-value">0</span>
+                        <button id="incrementBtn" class="btn btn-primary">+</button>
+                    </div>
+                    <button id="resetBtn" class="btn btn-outline">Reset</button>
+                </div>
+
+                <div class="demo-section">
+                    <h3>Lista de Tareas</h3>
+                    <div class="todo-container">
+                        <div class="input-group">
+                            <input type="text" id="todoInput" placeholder="Escribe una tarea..." class="input-field">
+                            <button id="addTodoBtn" class="btn btn-primary">Agregar</button>
+                        </div>
+                        <ul id="todoList" class="todo-list"></ul>
+                    </div>
+                </div>
+
+                <div class="demo-section">
+                    <h3>Información del Usuario</h3>
+                    <div class="user-info">
+                        <p><strong>Fecha actual:</strong> <span id="currentDate"></span></p>
+                        <p><strong>Hora actual:</strong> <span id="currentTime"></span></p>
+                        <p><strong>Navegador:</strong> <span id="browserInfo"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ZZZ - JavaScript Vanilla Project</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
