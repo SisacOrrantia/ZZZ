@@ -1,8 +1,26 @@
 export const states = {
-reposo: {name: "Reposo", probabilities: {same: 50, up: 25, down: 25}},
-dormir: {name: "Dormir", probabilities: {same: 70, up: 20, down: 10}},
-despertar: {name: "Despertar", probabilities: {same: 40, up: 40, down: 20}},
-caminar: {name: "Caminar", probabilities: {same: 50, up: 30, down: 20}},
-correr: {name: "Correr", probabilities: {same: 70, up: 20, down: 10}},
-susto: {name: "Susto", probabilities: {same: 0, up: 90, down: 10}},
+    reposo: {
+        name: "Reposo",
+        bpmRange: { min: 60, max: 80, target: 70 }
+    },
+    dormir: {
+        name: "Dormir",
+        bpmRange: { min: 45, max: 65, target: 55 }
+    },
+    despertar: {
+        name: "Despertar",
+        bpmRange: { min: 70, max: 100, target: 85 }
+    },
+    caminar: {
+        name: "Caminar",
+        bpmRange: { min: 90, max: 120, target: 105 }
+    },
+    correr: {
+        name: "Correr",
+        bpmRange: { min: 140, max: 180, target: 160 }
+    },
+    susto: {
+        name: "Susto",
+        bpmRange: { min: 120, max: 200, target: 170 }
+    }
 };

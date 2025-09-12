@@ -3,36 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZZZ - JavaScript Puro</title>
+    <title>Simulador Cardiaco</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Simulador</h1>
-        <p>Datos sobre latidos del corazon</p>
-    </header>
-
-    <main>
-        <section class="container">
-            <div class="demo-section">
-                <h3>Eventos del Simulador</h3>
-                    <div class="event-buttons">
-                        <button id="reposoBtn" class="btn btn-secondary">Reposo</button>
-                        <button id="dormirBtn" class="btn btn-secondary">Dormir</button>
-                        <button id="despertarBtn" class="btn btn-secondary">Despertar</button>
-                        <button id="caminarBtn" class="btn btn-secondary">Caminar</button>
-                        <button id="correrBtn" class="btn btn-secondary">Correr</button>
-                        <button id="sustoBtn" class="btn btn-secondary">Susto</button>
-                    </div>
+    <div class="container">
+        <h1>Simulador de Ritmo Cardiaco</h1>
+        
+        <div class="main-content">
+            <div class="monitor-section">
+                <h2>Monitor</h2>
+                <div class="bpm-display">
+                    <div class="bpm-number" id="currentBPM">72</div>
+                    <div class="bpm-label">BPM</div>
+                    <div class="state-badge" id="currentState">Reposo</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="heartChart"></canvas>
+                </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
-    </footer>
+            <div class="controls-section">
+                <h2>Estados</h2>
+                <div class="buttons-grid">
+                    <button class="state-btn" id="reposoBtn">Reposo</button>
+                    <button class="state-btn" id="dormirBtn">Dormir</button>
+                    <button class="state-btn" id="despertarBtn">Despertar</button>
+                    <button class="state-btn" id="caminarBtn">Caminar</button>
+                    <button class="state-btn" id="correrBtn">Correr</button>
+                    <button class="state-btn" id="sustoBtn">Susto</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Scripts -->
-    <script src="js/utils.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
