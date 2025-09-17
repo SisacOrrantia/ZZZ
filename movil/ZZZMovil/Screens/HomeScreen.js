@@ -4,8 +4,27 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bienvenido a ZZZ Movil</Text>
-      <Text style={styles.subtitle}>Esta es la pantalla inicial</Text>
+      <Text style={styles.title}>Bienvenido, Usuario</Text>
+      <View style={styles.weatherContainer}>
+        <Text style={styles.weatherText}>Algo sobre clima...</Text>
+      </View>
+      <View style={styles.searchBar}>
+        <Text style={styles.searchText}>Preguntale a IAxis</Text>
+      </View>
+      <View style={styles.cardsContainer}>
+        <View style={styles.card}>
+          <Text style={styles.cardText}>cuadro 1</Text>
+        </View>
+        <View style={styles.card}>
+          <Text style={styles.cardText}>cuadro 2</Text>
+        </View>
+        <View style={styles.card}>
+          <Text style={styles.cardText}>cuadro 3</Text>
+        </View>
+        <View style={styles.card}>
+          <Text style={styles.cardText}>cuadro 4</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -13,17 +32,81 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#2C3E50',
+    backgroundColor: '#415E72',
+    paddingTop: 25,
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 20,
+    color:"#F9F6F3",
+    textAlign: 'start',
+    fontFamily: 'Exo2-Bold',
   },
-  subtitle: {
+  weatherContainer: {
+    height: 180,
+    backgroundColor: '#2C3E50',
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 40,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
+  },
+  weatherText: {
+    color: '#F9F6F3',
+    fontSize: 18,
+    fontWeight: 'bold',
+        fontFamily: 'Exo2-Bold',
+  },
+  searchBar: {
+    height: 50,
+    backgroundColor: '#2C3E50',
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 18,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
+  },
+  searchText: {
+    color: '#F9F6F3',
     fontSize: 16,
-    color: '#666',
+    fontWeight: 'bold',
+    alignSelf: 'start',
+    margin: 15,
+    fontFamily: 'Exo2-Bold',
+  },
+  cardsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  card: {
+    width: '48%',
+    height: 150,
+    backgroundColor: '#2C3E50',
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
+  },
+  cardText: {
+    color: '#F9F6F3',
+    fontSize: 14,
+    fontWeight: 'bold',
+    fontFamily: 'Exo2-Bold',
   },
 });
