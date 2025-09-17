@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   return (
@@ -10,6 +11,7 @@ export default function HomeScreen() {
       </View>
       <View style={styles.searchBar}>
         <Text style={styles.searchText}>Preguntale a IAxis</Text>
+        <FontAwesome name="question-circle" size={24} color="#F9F6F3" />
       </View>
       <View style={styles.cardsContainer}>
         <View style={styles.card}>
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -61,15 +63,17 @@ const styles = StyleSheet.create({
     color: '#F9F6F3',
     fontSize: 18,
     fontWeight: 'bold',
-        fontFamily: 'Exo2-Bold',
+    fontFamily: 'Exo2-Bold',
   },
   searchBar: {
     height: 50,
     backgroundColor: '#2C3E50',
     borderRadius: 25,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 18,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    marginBottom: 30,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -80,8 +84,6 @@ const styles = StyleSheet.create({
     color: '#F9F6F3',
     fontSize: 16,
     fontWeight: 'bold',
-    alignSelf: 'start',
-    margin: 15,
     fontFamily: 'Exo2-Bold',
   },
   cardsContainer: {
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: '48%',
-    height: 150,
+    height: 100,
     backgroundColor: '#2C3E50',
     borderRadius: 15,
     justifyContent: 'center',
