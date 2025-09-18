@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 50,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: '48%',
-    height: 100,
+    height: 150,
     backgroundColor: '#2C3E50',
     borderRadius: 15,
     justifyContent: 'center',
