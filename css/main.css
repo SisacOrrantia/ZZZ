@@ -1,0 +1,610 @@
+/**
+ * Estilos para el Simulador de Día Completo - 3 Perfiles
+ * Diseño moderno y responsive con animaciones
+ */
+
+/* Variables CSS */
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #FFC107;
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --danger-color: #F44336;
+    --dark-color: #333;
+    --light-color: #f5f5f5;
+    --white: #ffffff;
+    
+    --adulto-color: #8BC34A;
+    --joven-color: #2196F3;
+    --gamer-color: #9C27B0;
+    
+    --shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 8px rgba(0,0,0,0.15);
+    --shadow-heavy: 0 8px 16px rgba(0,0,0,0.2);
+    
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+/* Panel de control */
+.control-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.time-display {
+    text-align: center;
+}
+
+.time-display span {
+    display: block;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+}
+
+.time-display small {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Controles de botones */
+.controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Botones */
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #FFA000;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: var(--white);
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #D32F2F;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Control de velocidad */
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.speed-control input[type="range"] {
+    width: 120px;
+}
+
+.speed-control span {
+    font-weight: bold;
+    color: var(--primary-color);
+    min-width: 30px;
+}
+
+/* Contenedor de perfiles */
+.profiles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Tarjetas de perfil */
+.profile-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: 25px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+/* Colores específicos por perfil */
+#adultoMayor::before {
+    background: var(--adulto-color);
+}
+
+#jovenGym::before {
+    background: var(--joven-color);
+}
+
+#gamerLoL::before {
+    background: var(--gamer-color);
+}
+
+/* Estados de actividad */
+.profile-card.sleeping {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.profile-card.working,
+.profile-card.cleaning,
+.profile-card.cooking {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffcc80 100%);
+}
+
+.profile-card.gaming {
+    background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%);
+    animation: gaming-pulse 2s infinite alternate;
+}
+
+.profile-card.studying {
+    background: linear-gradient(135deg, #e8f5e8 0%, #a5d6a7 100%);
+}
+
+/* Animación de gaming */
+@keyframes gaming-pulse {
+    0% { box-shadow: var(--shadow-medium); }
+    100% { box-shadow: 0 4px 20px rgba(156, 39, 176, 0.4); }
+}
+
+/* Header del perfil */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.profile-header h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* Indicador de estado */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--success-color);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Display de actividades */
+.activity-display {
+    margin-bottom: 25px;
+}
+
+.current-activity,
+.next-activity {
+    margin-bottom: 15px;
+}
+
+.current-activity h3 {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.current-activity p {
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 10px;
+    background: rgba(33, 150, 243, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.next-activity h4 {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.next-activity p {
+    color: #888;
+    font-style: italic;
+}
+
+/* Medidor de rage (específico para gamer) */
+.rage-meter {
+    margin: 15px 0;
+}
+
+.rage-meter h4 {
+    margin-bottom: 8px;
+    color: var(--danger-color);
+}
+
+.rage-bar {
+    width: 100%;
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.rage-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-color), var(--warning-color), var(--danger-color));
+    width: 0%;
+    transition: width 0.5s ease, background-color 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+}
+
+.rage-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: rage-shimmer 1.5s infinite;
+}
+
+@keyframes rage-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Horario diario */
+.daily-schedule {
+    margin-top: 20px;
+}
+
+.daily-schedule h4 {
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-size: 1.1em;
+}
+
+.daily-schedule ul {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.daily-schedule ul::-webkit-scrollbar {
+    width: 4px;
+}
+
+.daily-schedule ul::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.daily-schedule ul::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.daily-schedule li {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    transition: var(--transition);
+    font-size: 0.9em;
+}
+
+.daily-schedule li.completed {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--success-color);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.daily-schedule li.current {
+    background: rgba(33, 150, 243, 0.15);
+    border-left: 4px solid var(--primary-color);
+    font-weight: 600;
+    animation: current-activity 2s infinite alternate;
+}
+
+@keyframes current-activity {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(5px); }
+}
+
+/* Panel de estadísticas */
+.stats-panel {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: 30px;
+    text-align: center;
+}
+
+.stats-panel h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-item {
+    padding: 20px;
+    background: var(--light-color);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.stat-item span:last-child {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Intensidades de entrenamiento */
+.profile-card.intensity-low {
+    border-left: 4px solid var(--success-color);
+}
+
+.profile-card.intensity-medium {
+    border-left: 4px solid var(--warning-color);
+}
+
+.profile-card.intensity-high {
+    border-left: 4px solid var(--danger-color);
+}
+
+.profile-card.intensity-extreme {
+    border-left: 4px solid #8E24AA;
+    animation: intense-workout 1s infinite alternate;
+}
+
+@keyframes intense-workout {
+    0% { box-shadow: var(--shadow-medium); }
+    100% { box-shadow: 0 4px 20px rgba(244, 67, 54, 0.3); }
+}
+
+/* Estados de ánimo del gamer */
+.profile-card.mood-excited {
+    border-color: var(--success-color);
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+}
+
+.profile-card.mood-angry,
+.profile-card.mood-rage,
+.profile-card.mood-furious {
+    border-color: var(--danger-color);
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    animation: rage-shake 0.5s infinite;
+}
+
+@keyframes rage-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+.profile-card.mood-tilted {
+    animation: tilt 3s infinite;
+}
+
+@keyframes tilt {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-2deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .control-panel {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .controls {
+        justify-content: center;
+    }
+    
+    .profiles-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .time-display span {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 20px;
+    }
+    
+    .daily-schedule ul {
+        max-height: 150px;
+    }
+    
+    .controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    button {
+        width: 100%;
+    }
+}
+
+/* Efectos adicionales */
+.profile-card.sleeping .status-dot {
+    background: #2196F3;
+    animation: sleep-pulse 3s infinite;
+}
+
+@keyframes sleep-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.profile-card.gaming .status-dot {
+    background: var(--gamer-color);
+    animation: game-blink 0.5s infinite;
+}
+
+@keyframes game-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Transiciones suaves para cambios de estado */
+.profile-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scrollbar personalizado para toda la página */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5);
+}

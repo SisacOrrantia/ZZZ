@@ -3,41 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Cardiaco</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Simulador de Día - 3 Perfiles</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="container">
-        <h1>Simulador de Ritmo Cardiaco</h1>
-        
-        <div class="main-content">
-            <div class="monitor-section">
-                <h2>Monitor</h2>
-                <div class="bpm-display">
-                    <div class="bpm-number" id="currentBPM">72</div>
-                    <div class="bpm-label">BPM</div>
-                    <div class="state-badge" id="currentState">Reposo</div>
+        <header>
+            <h1>Simulador de Día Completo</h1>
+            <div class="control-panel">
+                <div class="time-display">
+                    <span id="simulatedTime">06:00</span>
+                    <small>Hora Simulada</small>
                 </div>
-                <div class="chart-container">
-                    <canvas id="heartChart"></canvas>
+                <div class="controls">
+                    <button id="startBtn" class="btn-primary">Iniciar Simulación</button>
+                    <button id="pauseBtn" class="btn-secondary" disabled>Pausar</button>
+                    <button id="resetBtn" class="btn-danger">Reiniciar</button>
+                </div>
+                <div class="speed-control">
+                    <label for="speedRange">Velocidad:</label>
+                    <input type="range" id="speedRange" min="1" max="5" value="3">
+                    <span id="speedDisplay">3x</span>
                 </div>
             </div>
+        </header>
 
-            <div class="controls-section">
-                <h2>Estados</h2>
-                <div class="buttons-grid">
-                    <button class="state-btn" id="reposoBtn">Reposo</button>
-                    <button class="state-btn" id="dormirBtn">Dormir</button>
-                    <button class="state-btn" id="despertarBtn">Despertar</button>
-                    <button class="state-btn" id="caminarBtn">Caminar</button>
-                    <button class="state-btn" id="correrBtn">Correr</button>
-                    <button class="state-btn" id="sustoBtn">Susto</button>
+        <main class="profiles-container">
+            <!-- Perfil 1: Adulto Mayor -->
+            <section class="profile-card" id="adultoMayor">
+                <div class="profile-header">
+                    <h2>👵 Adulta Mayor</h2>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span id="statusAdulto">Durmiendo</span>
+                    </div>
+                </div>
+                <div class="activity-display">
+                    <div class="current-activity">
+                        <h3>Actividad Actual:</h3>
+                        <p id="activityAdulto">💤 Durmiendo</p>
+                    </div>
+                    <div class="next-activity">
+                        <h4>Siguiente:</h4>
+                        <p id="nextActivityAdulto">🌅 Despertar (06:00)</p>
+                    </div>
+                </div>
+                <div class="daily-schedule">
+                    <h4>Rutina del Día:</h4>
+                    <ul id="scheduleAdulto">
+                        <li class="completed">06:00 - Despertar</li>
+                        <li>06:30 - Tender cama</li>
+                        <li>07:00 - Atender esposo</li>
+                        <li>08:00 - Desayuno</li>
+                        <li>09:00 - Barrer casa</li>
+                        <li>12:00 - Preparar comida</li>
+                        <li>14:00 - Almorzar</li>
+                        <li>16:00 - Labores básicas</li>
+                        <li>19:00 - Cena</li>
+                        <li>22:30 - Dormir</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Perfil 2: Joven Gym -->
+            <section class="profile-card" id="jovenGym">
+                <div class="profile-header">
+                    <h2>💪 Joven Fitness</h2>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span id="statusJoven">Durmiendo</span>
+                    </div>
+                </div>
+                <div class="activity-display">
+                    <div class="current-activity">
+                        <h3>Actividad Actual:</h3>
+                        <p id="activityJoven">💤 Durmiendo</p>
+                    </div>
+                    <div class="next-activity">
+                        <h4>Siguiente:</h4>
+                        <p id="nextActivityJoven">🌅 Despertar (06:00)</p>
+                    </div>
+                </div>
+                <div class="daily-schedule">
+                    <h4>Rutina del Día:</h4>
+                    <ul id="scheduleJoven">
+                        <li class="completed">06:00 - Despertar</li>
+                        <li>06:15 - Cardio/Aeróbicos</li>
+                        <li>08:00 - Desayuno proteíco</li>
+                        <li>09:00 - Preparación gym</li>
+                        <li>12:00 - Gimnasio (Hipertrofia)</li>
+                        <li>14:00 - Comida alta en proteínas</li>
+                        <li>17:00 - Escuela</li>
+                        <li>21:00 - Tiempo libre</li>
+                        <li>23:30 - Dormir</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Perfil 3: Gamer LoL -->
+            <section class="profile-card" id="gamerLoL">
+                <div class="profile-header">
+                    <h2>🎮 Gamer LoL</h2>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span id="statusGamer">Durmiendo</span>
+                    </div>
+                </div>
+                <div class="activity-display">
+                    <div class="current-activity">
+                        <h3>Actividad Actual:</h3>
+                        <p id="activityGamer">💤 Durmiendo</p>
+                    </div>
+                    <div class="next-activity">
+                        <h4>Siguiente:</h4>
+                        <p id="nextActivityGamer">🌅 Despertar (06:30)</p>
+                    </div>
+                    <div class="rage-meter">
+                        <h4>Nivel de Ira:</h4>
+                        <div class="rage-bar">
+                            <div id="rageLevel" class="rage-fill"></div>
+                        </div>
+                        <span id="rageText">Calmado</span>
+                    </div>
+                </div>
+                <div class="daily-schedule">
+                    <h4>Rutina del Día:</h4>
+                    <ul id="scheduleGamer">
+                        <li class="completed">06:30 - Despertar</li>
+                        <li>07:00 - Escuela</li>
+                        <li>15:00 - Llegada a casa</li>
+                        <li>15:30 - League of Legends</li>
+                        <li>18:00 - Cena rápida</li>
+                        <li>18:30 - Más LoL</li>
+                        <li>22:00 - Snacks nocturnos</li>
+                        <li>01:30 - Dormir (finalmente)</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="stats-panel">
+            <h3>Estadísticas de la Simulación</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Tiempo Real Transcurrido:</span>
+                    <span id="realTimeElapsed">0:00</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Día Simulado:</span>
+                    <span id="simulatedDay">1</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Actividades Completadas:</span>
+                    <span id="completedActivities">0</span>
                 </div>
             </div>
-        </div>
+        </footer>
     </div>
 
+    <!-- Scripts principales -->
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
